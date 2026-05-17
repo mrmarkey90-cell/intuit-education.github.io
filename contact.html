@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Intuit</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <a href="index.html" class="sidebar-logo">
+    <img src="logo_transparent.png" alt="Intuit logo">
+    <span class="sidebar-logo-text">in<span>tu</span>it</span>
+    <span class="sidebar-tagline">Philosophy for Schools</span>
+  </a>
+  <nav class="sidebar-nav">
+    <a href="index.html" class="nav-item">Home</a>
+    <a href="about.html" class="nav-item">About</a>
+    <a href="sessions.html" class="nav-item">Sessions</a>
+    <a href="lessons.html" class="nav-item">Lessons</a>
+    <div class="nav-games-toggle" onclick="toggleGames(this)">
+      <span>Games</span>
+      <svg class="nav-games-arrow" viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg>
+    </div>
+    <div class="nav-games-children">
+      <a href="games/hidden-meaning.html" class="nav-item">Hidden Meaning</a>
+    </div>
+    <a href="contact.html" class="nav-item active">Contact</a>
+  </nav>
+  <div class="sidebar-footer">
+    © 2026 Intuit<br>Mat Markey, QTS
+  </div>
+</aside>
+
+<main class="main">
+
+  <div class="page-hero">
+    <p class="eyebrow fade-up">Get in touch</p>
+    <h1 class="page-title fade-up delay-1">Let's talk about<br><em>your school.</em></h1>
+    <div class="rule-accent fade-up delay-2"></div>
+    <p class="page-intro fade-up delay-2">The best first step is a conversation. If you're a head teacher, class teacher, or curriculum lead curious about what Intuit might offer, get in touch.</p>
+  </div>
+
+  <div class="section">
+    <div class="container">
+
+      <div class="contact-line">
+        <span class="contact-key">Email</span>
+        <span class="contact-val"><a href="mailto:hello@intuit-education.co.uk">hello@intuit-education.co.uk</a></span>
+      </div>
+      <div class="contact-line">
+        <span class="contact-key">Based in</span>
+        <span class="contact-val">Wales &amp; the West Midlands</span>
+      </div>
+      <div class="contact-line">
+        <span class="contact-key">Travel</span>
+        <span class="contact-val">No additional charge within Wales and the West Midlands. Further afield by arrangement.</span>
+      </div>
+      <div class="contact-line">
+        <span class="contact-key">Key stages</span>
+        <span class="contact-val">KS2 primary (Years 3–6), KS3 secondary</span>
+      </div>
+      <div class="contact-line">
+        <span class="contact-key">Curriculum hooks</span>
+        <span class="contact-val">SMSC, Oracy, PSHE, Critical Thinking, Verbal Reasoning</span>
+      </div>
+      <div class="contact-line">
+        <span class="contact-key">Schools welcomed</span>
+        <span class="contact-val">State and independent. Fees negotiable for smaller state primaries.</span>
+      </div>
+
+      <p style="margin-top: 2.5rem;" class="body-text">Assembly slots are available throughout the year and are the ideal low-commitment starting point. Enquiries about half-term programmes and CPD add-ons are equally welcome.</p>
+
+      <div style="margin-top: 2rem;">
+        <a href="mailto:hello@intuit-education.co.uk" class="btn btn-primary">Send an email</a>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+<script>
+function toggleGames(el) {
+  el.classList.toggle('open');
+  el.nextElementSibling.classList.toggle('open');
+}
+</script>
+</body>
+</html>

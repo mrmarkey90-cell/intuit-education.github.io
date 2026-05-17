@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lessons — Intuit</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <a href="index.html" class="sidebar-logo">
+    <img src="logo_transparent.png" alt="Intuit logo">
+    <span class="sidebar-logo-text">in<span>tu</span>it</span>
+    <span class="sidebar-tagline">Philosophy for Schools</span>
+  </a>
+  <nav class="sidebar-nav">
+    <a href="index.html" class="nav-item">Home</a>
+    <a href="about.html" class="nav-item">About</a>
+    <a href="sessions.html" class="nav-item">Sessions</a>
+    <a href="lessons.html" class="nav-item active">Lessons</a>
+    <div class="nav-games-toggle" onclick="toggleGames(this)">
+      <span>Games</span>
+      <svg class="nav-games-arrow" viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg>
+    </div>
+    <div class="nav-games-children">
+      <a href="games/hidden-meaning.html" class="nav-item">Hidden Meaning</a>
+    </div>
+    <a href="contact.html" class="nav-item">Contact</a>
+  </nav>
+  <div class="sidebar-footer">
+    © 2026 Intuit<br>Mat Markey, QTS
+  </div>
+</aside>
+
+<main class="main">
+
+  <div class="page-hero">
+    <p class="eyebrow fade-up">Example lessons</p>
+    <h1 class="page-title fade-up delay-1">The ideas don't<br><em>talk down.</em></h1>
+    <div class="rule-accent fade-up delay-2"></div>
+    <p class="page-intro fade-up delay-2">These are the actual problems — not child-friendly versions of them. The craft is in the approach, not the content. Every lesson ends with a hook question the children take home.</p>
+  </div>
+
+  <div class="section">
+    <div class="container">
+
+      <div class="lesson">
+        <div class="lesson-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
+          <div class="lesson-subtitle">Identity &amp; Change</div>
+          <h3 class="lesson-title">The Ship of Theseus</h3>
+          <p class="lesson-body">We build a ship together through song — naming the mast, the hull, the keel. Then parts begin to break. The class shouts out replacements until every plank is new. Is it still the same ship? Then: your body replaces most of its cells every seven years. Are you the same person you were when you were born?</p>
+          <p class="lesson-hook">"If your memories were transferred to a new body, which one would be you?"</p>
+        </div>
+      </div>
+
+      <div class="lesson">
+        <div class="lesson-icon">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </div>
+        <div>
+          <div class="lesson-subtitle">Language &amp; Meaning</div>
+          <h3 class="lesson-title">What is a word?</h3>
+          <p class="lesson-body">Two words that sound identical but mean entirely different things. What makes one mean what it means? Is it the sound, the letters, the speaker's intention, or something else entirely? Children try to define a chair — and we find the counterexample to every definition they give.</p>
+          <p class="lesson-hook">"If everyone agreed 'dog' meant cat from tomorrow, which one would be right?"</p>
+        </div>
+      </div>
+
+      <div class="lesson">
+        <div class="lesson-icon">
+          <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <div>
+          <div class="lesson-subtitle">Appearance &amp; Reality</div>
+          <h3 class="lesson-title">The problem of universals</h3>
+          <p class="lesson-body">Using chairs. Every chair in the room is different — different height, colour, material. So what makes all of them chairs? Is "chair" a real thing, or just a word we've agreed to use? Plato thought forms were more real than the objects. We test that idea in the room.</p>
+          <p class="lesson-hook">"If every chair in the world was destroyed, would chairness still exist?"</p>
+        </div>
+      </div>
+
+      <div class="lesson">
+        <div class="lesson-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <div>
+          <div class="lesson-subtitle">Knowledge &amp; Belief</div>
+          <h3 class="lesson-title">How do you know?</h3>
+          <p class="lesson-body">We know the Earth is round. But how do we know? Most of us have never been to space. We know because we trust sources — textbooks, teachers, television. But how do we decide which sources to trust? And if our trust is based on trust, is it really knowledge at all?</p>
+          <p class="lesson-hook">"Is there anything you know for certain — that no one could argue you out of?"</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section" style="background: var(--paper-warm);">
+    <div class="container">
+      <p class="eyebrow">Bespoke sessions</p>
+      <h2 class="section-title">Built around your school</h2>
+      <p class="body-text">These are examples of lessons that have been tried and refined. But Intuit sessions can be built around a specific theme, topic, or year group — particularly if you have a PSHE focus, a school value, or a concept that keeps coming up in your community.</p>
+      <p class="body-text">Get in touch and we'll talk through what might fit.</p>
+      <div style="margin-top: 2rem;">
+        <a href="contact.html" class="btn btn-primary">Get in touch</a>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<script>
+function toggleGames(el) {
+  el.classList.toggle('open');
+  el.nextElementSibling.classList.toggle('open');
+}
+</script>
+</body>
+</html>

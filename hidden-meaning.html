@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hidden Meaning — Intuit Games</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <a href="../index.html" class="sidebar-logo">
+    <img src="../logo_transparent.png" alt="Intuit logo">
+    <span class="sidebar-logo-text">in<span>tu</span>it</span>
+    <span class="sidebar-tagline">Philosophy for Schools</span>
+  </a>
+  <nav class="sidebar-nav">
+    <a href="../index.html" class="nav-item">Home</a>
+    <a href="../about.html" class="nav-item">About</a>
+    <a href="../sessions.html" class="nav-item">Sessions</a>
+    <a href="../lessons.html" class="nav-item">Lessons</a>
+    <div class="nav-games-toggle open active" onclick="toggleGames(this)">
+      <span>Games</span>
+      <svg class="nav-games-arrow" viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg>
+    </div>
+    <div class="nav-games-children open">
+      <a href="hidden-meaning.html" class="nav-item active">Hidden Meaning</a>
+    </div>
+    <a href="../contact.html" class="nav-item">Contact</a>
+  </nav>
+  <div class="sidebar-footer">
+    © 2026 Intuit<br>Mat Markey, QTS
+  </div>
+</aside>
+
+<main class="main">
+
+  <div class="page-hero" style="padding-bottom: 2rem;">
+    <p class="eyebrow fade-up">Games — Hidden Meaning</p>
+    <h1 class="page-title fade-up delay-1" style="font-size: clamp(2rem, 4vw, 3rem);">What is a word<br><em>actually made of?</em></h1>
+    <div class="rule-accent fade-up delay-2"></div>
+    <p class="page-intro fade-up delay-2" style="font-size: 1rem;">Drag the root words into place to unlock the hidden meaning inside each word. Every word has a secret archaeology.</p>
+  </div>
+
+  <div class="section" style="padding-top: 1rem;">
+    <div class="container-wide">
+      <div class="game-frame-wrapper">
+        <div class="game-frame-label">
+          <span class="game-frame-title">Hidden Meaning</span>
+          <span class="game-frame-tag">Ages 7–11</span>
+        </div>
+        <!-- Replace src with your Godot HTML5 export path, e.g. ./hidden-meaning-export/index.html -->
+        <iframe
+          src="./hidden-meaning-export/index.html"
+          title="Hidden Meaning — etymology drag and drop game"
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
+      </div>
+      <p style="margin-top: 1rem; font-size: 0.8rem; color: var(--ink-muted);">
+        Place your Godot HTML5 export files in <code>games/hidden-meaning-export/</code> and the game will appear here.
+      </p>
+    </div>
+  </div>
+
+  <div class="section" style="background: var(--paper-warm);">
+    <div class="container">
+      <p class="eyebrow">About this game</p>
+      <h2 class="section-title">Language has a hidden archaeology</h2>
+      <p class="body-text">Every word in English has a history — often Greek, Latin, or Old English — and the literal meaning of its roots is frequently stranger and more interesting than the word itself.</p>
+      <p class="body-text"><em>Disaster</em> means ill-starred. <em>Salary</em> means salt money. <em>Pupil</em> means little doll — the tiny reflection you see of yourself in someone's eye.</p>
+      <p class="body-text">Once children know how roots work, they can start predicting meanings. That is the philosophical move: not just knowing a fact, but understanding the system behind it.</p>
+    </div>
+  </div>
+
+</main>
+
+<script>
+function toggleGames(el) {
+  el.classList.toggle('open');
+  el.nextElementSibling.classList.toggle('open');
+}
+</script>
+</body>
+</html>

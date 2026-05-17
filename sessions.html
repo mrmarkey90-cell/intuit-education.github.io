@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sessions — Intuit</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <a href="index.html" class="sidebar-logo">
+    <img src="logo_transparent.png" alt="Intuit logo">
+    <span class="sidebar-logo-text">in<span>tu</span>it</span>
+    <span class="sidebar-tagline">Philosophy for Schools</span>
+  </a>
+  <nav class="sidebar-nav">
+    <a href="index.html" class="nav-item">Home</a>
+    <a href="about.html" class="nav-item">About</a>
+    <a href="sessions.html" class="nav-item active">Sessions</a>
+    <a href="lessons.html" class="nav-item">Lessons</a>
+    <div class="nav-games-toggle" onclick="toggleGames(this)">
+      <span>Games</span>
+      <svg class="nav-games-arrow" viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg>
+    </div>
+    <div class="nav-games-children">
+      <a href="games/hidden-meaning.html" class="nav-item">Hidden Meaning</a>
+    </div>
+    <a href="contact.html" class="nav-item">Contact</a>
+  </nav>
+  <div class="sidebar-footer">
+    © 2026 Intuit<br>Mat Markey, QTS
+  </div>
+</aside>
+
+<main class="main">
+
+  <div class="page-hero">
+    <p class="eyebrow fade-up">What we offer</p>
+    <h1 class="page-title fade-up delay-1">Three ways to<br><em>work together.</em></h1>
+    <div class="rule-accent fade-up delay-2"></div>
+    <p class="page-intro fade-up delay-2">Whether you want a one-off assembly or a sustained half-term programme, Intuit can fit around your school's existing structure — and leave something lasting behind.</p>
+  </div>
+
+  <div class="section">
+    <div class="container-wide">
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-number">01</div>
+          <div class="card-title">Assembly</div>
+          <div class="card-desc">A 20–30 minute whole-school or year-group encounter with one big idea. Low commitment, high impact. The ideal introduction — for the children and for the head teacher watching from the back.</div>
+        </div>
+        <div class="card">
+          <div class="card-number">02</div>
+          <div class="card-title">Class session</div>
+          <div class="card-desc">A 45–60 minute Socratic session with a single class. Focused, participatory, and deliberately structured so that the deepest thinking comes from the children, not the facilitator.</div>
+        </div>
+        <div class="card">
+          <div class="card-number">03</div>
+          <div class="card-title">Half-term programme</div>
+          <div class="card-desc">Six sessions across a half-term, building progressively across a set of connected ideas. Concepts compound. Children begin to notice philosophy everywhere. The preferred model once a relationship is established.</div>
+        </div>
+        <div class="card">
+          <div class="card-number">04</div>
+          <div class="card-title">CPD add-on</div>
+          <div class="card-desc">A session delivered with the class, followed by a 30-minute staff workshop on running Socratic discussions. Leaves the school with lasting capacity, not dependency.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" style="background: var(--paper-warm);">
+    <div class="container">
+      <p class="eyebrow">Pricing</p>
+      <h2 class="section-title">Transparent fees</h2>
+      <p class="body-text">Intuit is a one-person practice, which means pricing is honest and negotiable — particularly for smaller state schools with limited enrichment budgets.</p>
+
+      <div style="margin-top: 2rem; display: flex; flex-direction: column; gap: 0;">
+        <div class="contact-line">
+          <span class="contact-key">Assembly</span>
+          <span class="contact-val">£150 – £200</span>
+        </div>
+        <div class="contact-line">
+          <span class="contact-key">Class session</span>
+          <span class="contact-val">£200 – £300</span>
+        </div>
+        <div class="contact-line">
+          <span class="contact-key">Half-term programme (6 sessions)</span>
+          <span class="contact-val">£600 – £1,200</span>
+        </div>
+        <div class="contact-line">
+          <span class="contact-key">CPD add-on</span>
+          <span class="contact-val">+£100 per session</span>
+        </div>
+        <div class="contact-line">
+          <span class="contact-key">Travel</span>
+          <span class="contact-val">Wales &amp; West Midlands — no additional charge. Elsewhere by arrangement.</span>
+        </div>
+      </div>
+
+      <p style="margin-top: 1.5rem;" class="body-text">Independent schools are welcome to enquire at the higher end of these ranges. State schools with Pupil Premium or enrichment budgets — get in touch and we'll find something that works.</p>
+      <div style="margin-top: 2rem;">
+        <a href="contact.html" class="btn btn-primary">Book a session</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <p class="eyebrow">Key stages</p>
+      <h2 class="section-title">Who Intuit is for</h2>
+      <p class="body-text">The core offering is KS2 — Years 3 to 6. This is the sweet spot: old enough to handle abstraction, young enough to still be genuinely delighted by ideas.</p>
+      <p class="body-text">KS3 secondary sessions are also available, particularly for philosophy, PSHE, or oracy enrichment. Assemblies can be tailored for any age group from Year 1 upwards.</p>
+    </div>
+  </div>
+
+</main>
+
+<script>
+function toggleGames(el) {
+  el.classList.toggle('open');
+  el.nextElementSibling.classList.toggle('open');
+}
+</script>
+</body>
+</html>

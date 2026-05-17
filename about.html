@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Intuit</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <a href="../index.html" class="sidebar-logo">
+    <img src="logo_transparent.png" alt="Intuit logo">
+    <span class="sidebar-logo-text">in<span>tu</span>it</span>
+    <span class="sidebar-tagline">Philosophy for Schools</span>
+  </a>
+  <nav class="sidebar-nav">
+    <a href="index.html" class="nav-item">Home</a>
+    <a href="about.html" class="nav-item active">About</a>
+    <a href="sessions.html" class="nav-item">Sessions</a>
+    <a href="lessons.html" class="nav-item">Lessons</a>
+    <div class="nav-games-toggle" onclick="toggleGames(this)">
+      <span>Games</span>
+      <svg class="nav-games-arrow" viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg>
+    </div>
+    <div class="nav-games-children">
+      <a href="games/hidden-meaning.html" class="nav-item">Hidden Meaning</a>
+    </div>
+    <a href="contact.html" class="nav-item">Contact</a>
+  </nav>
+  <div class="sidebar-footer">
+    © 2026 Intuit<br>Mat Markey, QTS
+  </div>
+</aside>
+
+<main class="main">
+
+  <div class="page-hero">
+    <p class="eyebrow fade-up">About Intuit</p>
+    <h1 class="page-title fade-up delay-1">Philosophy by<br><em>the back door.</em></h1>
+    <div class="rule-accent fade-up delay-2"></div>
+    <p class="page-intro fade-up delay-2">Intuit is a one-person enrichment practice founded by Mat Markey — a qualified teacher who spent years watching children light up the moment you take their thinking seriously.</p>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <p class="eyebrow">The approach</p>
+      <h2 class="section-title">Feel it first. Think it second.</h2>
+      <p class="body-text">Every Intuit session is designed so that children encounter the problem emotionally before they encounter it intellectually. Music, objects, images, stories — whatever opens the door. The philosophy walks in once the room is ready.</p>
+      <p class="body-text">This is not P4C. P4C is a methodology designed to be delivered by any teacher. Intuit sessions require someone who has sat with the problems themselves. The difference is audible in the room within the first five minutes.</p>
+      <p class="body-text">The aim is not to produce young philosophers. It is to produce children who have once felt the ground shift beneath a question they thought they already knew the answer to. That feeling doesn't leave.</p>
+    </div>
+  </div>
+
+  <div class="section" style="background: var(--paper-warm);">
+    <div class="container">
+      <p class="eyebrow">Mat Markey</p>
+      <h2 class="section-title">The person in the room</h2>
+      <p class="body-text">Mat holds Qualified Teacher Status with a KS2 Music specialism and has worked extensively in primary schools as a supply teacher, music workshop facilitator, and Independent Mental Health Advocate.</p>
+      <p class="body-text">He has trialled philosophical sessions with children as young as seven — including the problem of universals using chairs, and the Ship of Theseus through song — and found consistently that young children do not need philosophy to be simplified. They need it to be properly introduced.</p>
+      <blockquote style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-style: italic; color: var(--ink-soft); border-left: 2px solid var(--accent); padding-left: 1.5rem; margin: 2rem 0; line-height: 1.6;">
+        "You are called a pupil because of what a teacher sees in your eye."
+      </blockquote>
+      <p class="body-text">That is the kind of moment Intuit is built around — the small revelation that reframes something familiar and refuses to leave the mind alone.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <p class="eyebrow">Curriculum relevance</p>
+      <h2 class="section-title">Defensible timetable time</h2>
+      <p class="body-text">Intuit sessions credibly serve SMSC (Spiritual, Moral, Social and Cultural development), oracy, verbal reasoning, critical thinking across subjects, and PSHE themes including identity, change, community and fairness.</p>
+      <p class="body-text">They are not an optional extra. They are a use of school time that Ofsted will recognise — and that children will remember.</p>
+      <div style="margin-top: 2rem;">
+        <a href="sessions.html" class="btn btn-ghost">See our sessions →</a>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<script>
+function toggleGames(el) {
+  el.classList.toggle('open');
+  el.nextElementSibling.classList.toggle('open');
+}
+</script>
+</body>
+</html>
