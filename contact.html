@@ -6,8 +6,113 @@
 <link rel="icon" type="image/svg+xml" href="/intuit_logo.svg">
 <title>Contact — Intuit</title>
 <link rel="stylesheet" href="css/style.css">
+<style>
+.mobile-header {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  height: 56px;
+  background: var(--paper-warm);
+  border-bottom: 1px solid var(--rule);
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.25rem;
+}
+
+.mobile-header-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+}
+
+.mobile-header-logo span { color: var(--accent); }
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  background: none;
+  border: none;
+}
+
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--ink);
+  transition: all 0.25s;
+  transform-origin: center;
+}
+
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 56px; left: 0; right: 0;
+  z-index: 99;
+  background: var(--paper-warm);
+  border-bottom: 1px solid var(--rule);
+  flex-direction: column;
+  padding: 0.75rem 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.mobile-nav.open { display: flex; }
+.mobile-nav .nav-item { padding: 0.75rem 1.5rem; border-left: none; font-size: 0.95rem; }
+
+.mobile-nav-games-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+
+.mobile-nav-games-children { display: none; flex-direction: column; background: rgba(200,96,42,0.04); }
+.mobile-nav-games-children.open { display: flex; }
+.mobile-nav-games-children .nav-item { padding-left: 2.5rem; font-size: 0.875rem; }
+
+@media (max-width: 768px) {
+  .mobile-header { display: flex; }
+  .main { padding-top: 56px; }
+}
+</style>
 </head>
 <body>
+
+<!-- MOBILE HEADER -->
+<div class="mobile-header">
+  <a href="index.html" class="mobile-header-logo">in<span>tu</span>it</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</div>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="index.html" class="nav-item">Home</a>
+  <a href="about.html" class="nav-item">About</a>
+  <a href="sessions.html" class="nav-item">Sessions</a>
+  <div class="mobile-nav-games-toggle" onclick="toggleMobileGames(this)">
+    <span>Games</span>
+    <svg class="nav-games-arrow" viewBox="0 0 12 12" style="width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;"><polyline points="2,4 6,8 10,4"/></svg>
+  </div>
+  <div class="mobile-nav-games-children">
+    <a href="games/hidden-meaning.html" class="nav-item">Hidden Meaning</a>
+  </div>
+  <a href="contact.html" class="nav-item active">Contact</a>
+</nav>
 
 <aside class="sidebar">
   <a href="index.html" class="sidebar-logo">
@@ -19,7 +124,6 @@
     <a href="index.html" class="nav-item">Home</a>
     <a href="about.html" class="nav-item">About</a>
     <a href="sessions.html" class="nav-item">Sessions</a>
-    <a href="lessons.html" class="nav-item">Lessons</a>
     <div class="nav-games-toggle" onclick="toggleGames(this)">
       <span>Games</span>
       <svg class="nav-games-arrow" viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg>
@@ -36,17 +140,14 @@
 </aside>
 
 <main class="main">
-
   <div class="page-hero">
     <p class="eyebrow fade-up">Get in touch</p>
     <h1 class="page-title fade-up delay-1">Let's talk about<br><em>your school.</em></h1>
     <div class="rule-accent fade-up delay-2"></div>
-    <p class="page-intro fade-up delay-2">The best first step is a conversation. If you're a head teacher, class teacher, or curriculum lead curious about what Intuit might offer, get in touch.</p>
+    <p class="page-intro fade-up delay-2">The best first step is a conversation. If you're a head teacher, class teacher, or curriculum lead curious about what <span class="brand">intuit</span> might offer, get in touch.</p>
   </div>
-
   <div class="section">
     <div class="container">
-
       <div class="contact-line">
         <span class="contact-key">Email</span>
         <span class="contact-val"><a href="mailto:mat@intuit-education.co.uk">mat@intuit-education.co.uk</a></span>
@@ -71,22 +172,31 @@
         <span class="contact-key">Schools welcomed</span>
         <span class="contact-val">State and independent. Fees negotiable for smaller state primaries.</span>
       </div>
-
       <p style="margin-top: 2.5rem;" class="body-text">Assembly slots are available throughout the year and are the ideal low-commitment starting point. Enquiries about half-term programmes and CPD add-ons are equally welcome.</p>
-
       <div style="margin-top: 2rem;">
         <a href="mailto:mat@intuit-education.co.uk" class="btn btn-primary">Send an email</a>
       </div>
-
     </div>
   </div>
-
 </main>
 
 <script>
 function toggleGames(el) {
   el.classList.toggle('open');
   el.nextElementSibling.classList.toggle('open');
+}
+
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobile-nav');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileNav.classList.toggle('open');
+});
+
+function toggleMobileGames(el) {
+  el.nextElementSibling.classList.toggle('open');
+  el.querySelector('.nav-games-arrow').style.transform =
+    el.nextElementSibling.classList.contains('open') ? 'rotate(180deg)' : '';
 }
 </script>
 </body>
