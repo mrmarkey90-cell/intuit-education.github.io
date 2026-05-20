@@ -19,7 +19,6 @@
   justify-content: space-between;
   padding: 0 1.25rem;
 }
-
 .mobile-header-logo {
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.3rem;
@@ -28,9 +27,7 @@
   text-decoration: none;
   letter-spacing: 0.04em;
 }
-
 .mobile-header-logo span { color: var(--accent); }
-
 .hamburger {
   display: flex;
   flex-direction: column;
@@ -40,7 +37,6 @@
   background: none;
   border: none;
 }
-
 .hamburger span {
   display: block;
   width: 22px;
@@ -49,11 +45,9 @@
   transition: all 0.25s;
   transform-origin: center;
 }
-
 .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .hamburger.open span:nth-child(2) { opacity: 0; }
 .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
 .mobile-nav {
   display: none;
   position: fixed;
@@ -65,10 +59,8 @@
   padding: 0.75rem 0;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
-
 .mobile-nav.open { display: flex; }
 .mobile-nav .nav-item { padding: 0.75rem 1.5rem; border-left: none; font-size: 0.95rem; }
-
 .mobile-nav-games-toggle {
   display: flex;
   align-items: center;
@@ -78,20 +70,140 @@
   color: var(--ink-soft);
   cursor: pointer;
 }
-
 .mobile-nav-games-children { display: none; flex-direction: column; background: rgba(200,96,42,0.04); }
 .mobile-nav-games-children.open { display: flex; }
 .mobile-nav-games-children .nav-item { padding-left: 2.5rem; font-size: 0.875rem; }
 
+/* TESTIMONIAL CAROUSEL */
+.testimonial-carousel-section {
+  padding: 4rem;
+  background: var(--paper-warm);
+  border-bottom: 1px solid var(--rule);
+  overflow: hidden;
+}
+.testimonial-carousel-header { margin-bottom: 2rem; }
+.testimonial-track-wrapper {
+  overflow: hidden;
+  cursor: grab;
+  user-select: none;
+}
+.testimonial-track-wrapper:active { cursor: grabbing; }
+.testimonial-track {
+  display: flex;
+  gap: 1.5rem;
+  transition: transform 0.6s ease;
+  will-change: transform;
+}
+.testimonial-card {
+  flex: 0 0 380px;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: 2rem;
+  position: relative;
+}
+.testimonial-card-mark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--accent-light);
+  position: absolute;
+  top: 0.75rem;
+  right: 1.25rem;
+}
+.testimonial-card-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  margin-bottom: 1.25rem;
+}
+.testimonial-card-author {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--ink-muted);
+  letter-spacing: 0.05em;
+}
+.testimonial-card-role {
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+  margin-top: 0.1rem;
+}
+.testimonial-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+.t-carousel-btn {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.t-carousel-btn:hover { border-color: var(--accent); background: var(--accent-light); }
+.t-carousel-btn svg {
+  width: 14px;
+  height: 14px;
+  stroke: var(--ink);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.t-carousel-dots { display: flex; gap: 6px; }
+.t-carousel-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--rule);
+  transition: background 0.2s;
+  cursor: pointer;
+}
+.t-carousel-dot.active { background: var(--accent); }
+.testimonial-placeholder-note {
+  margin-top: 1.25rem;
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+  font-style: italic;
+}
+
+/* CONTACT CTA */
+.contact-cta {
+  padding: 4rem;
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.contact-cta-text h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+.contact-cta-text p { font-size: 1rem; color: var(--ink-soft); }
+
 @media (max-width: 768px) {
   .mobile-header { display: flex; }
   .main { padding-top: 56px; }
+  .testimonial-carousel-section { padding: 2.5rem 1.5rem; }
+  .testimonial-card { flex: 0 0 280px; }
+  .contact-cta { padding: 2.5rem 1.5rem; flex-direction: column; align-items: flex-start; }
 }
 </style>
 </head>
 <body>
 
-<!-- MOBILE HEADER -->
 <div class="mobile-header">
   <a href="index.html" class="mobile-header-logo">in<span>tu</span>it</a>
   <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -99,7 +211,6 @@
   </button>
 </div>
 
-<!-- MOBILE NAV -->
 <nav class="mobile-nav" id="mobile-nav">
   <a href="index.html" class="nav-item active">Home</a>
   <a href="about.html" class="nav-item">About</a>
@@ -143,9 +254,9 @@
 
   <div class="page-hero">
     <p class="eyebrow fade-up">Higher-Order Thinking for Primary and Secondary Schools</p>
-    <h1 class="page-title fade-up delay-1">Big ideas<br><em>Young minds</em></h1>
+    <h1 class="page-title fade-up delay-1">Big ideas.<br><em>Young minds.</em></h1>
     <div class="rule-accent fade-up delay-2"></div>
-    <p class="page-intro fade-up delay-2"><span class="brand">intuit</span> allows children to feel higher-order thinking before reason enters into it. We don't teach critical thinking; we create the conditions for it to arise naturally via wonder, paradox and mystery.</p>
+    <p class="page-intro fade-up delay-2"><span class="brand">intuit</span> allows children to feel higher-order thinking before reason enters into it. We don't teach critical thinking; we create the conditions for it to arise naturally via <em>wonder, paradox and mystery.</em></p>
     <div style="margin-top: 2rem;" class="fade-up delay-3">
       <a href="contact.html" class="btn btn-primary">Book a session</a>
       <a href="about.html" class="btn btn-ghost" style="margin-left: 1rem;">Learn more</a>
@@ -154,15 +265,62 @@
 
   <div class="section">
     <div class="container">
+      <p class="eyebrow">Who it's for</p>
+      <h2 class="section-title">The sweet spot is Upper KS2 and KS3.</h2>
+      <p class="body-text">Years 5 to 9: old enough to handle abstraction, young enough to still be genuinely delighted by ideas. Assemblies can be tailored for any age group from Year 3 upwards.</p>
+      <p class="body-text">State schools and independents both welcome. <span class="brand">intuit</span> sessions credibly serve SMSC, oracy, critical thinking, and PSHE — a defensible use of school time that Ofsted and Estyn will recognise.</p>
+    </div>
+  </div>
+
+  <div class="section" style="background: var(--paper-warm);  border-bottom: 1px solid var(--rule);">
+    <div class="container">
       <p class="eyebrow">What <span class="brand">intuit</span> does</p>
       <h2 class="section-title">Feel it first. Think it second.</h2>
       <p class="body-text"><span class="brand">intuit</span> visits schools to run focused sessions in which children encounter genuine problems. Not simplified versions, but the real thing, approached through art, music, story and Socratic dialogue.</p>
-      <p class="body-text">Every session is designed so that children feel the problem before thinking about it. Every session ends with a landing hook: a question rooted in their own lived experience that they take home with them.</p>
-      <p class="body-text">This is not P4C. P4C is a methodology designed to be delivered by any teacher. <span class="brand">intuit</span> sessions require someone who has sat with the problems themselves. The difference is palpable.</p>
+      <p class="body-text">Every session ends with a landing hook: a question rooted in the child's own lived experience that they take home with them. This is not P4C. The difference is palpable in the room.</p>
       <div style="margin-top: 2rem;">
         <a href="sessions.html" class="btn btn-ghost">See what's on offer →</a>
       </div>
     </div>
+  </div>
+
+  <div class="testimonial-carousel-section">
+    <div class="testimonial-carousel-header">
+      <p class="eyebrow">Testimonials</p>
+      <h2 class="section-title">What schools say</h2>
+    </div>
+    <div class="testimonial-track-wrapper" id="t-wrapper">
+      <div class="testimonial-track" id="t-track">
+        <div class="testimonial-card">
+          <div class="testimonial-card-mark">"</div>
+          <p class="testimonial-card-quote">The children were completely captivated. The Ship of Theseus lesson sparked conversations that went on for the rest of the week. One child asked their parents about it at dinner and came back the next day with a new argument.</p>
+          <div class="testimonial-card-author">Class Teacher, Year 5</div>
+          <div class="testimonial-card-role">Primary school, South Wales</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-card-mark">"</div>
+          <p class="testimonial-card-quote">I've seen a lot of enrichment providers come through. Most talk down to children. Mat doesn't. He takes their thinking seriously and the children respond to that immediately. An extraordinary session.</p>
+          <div class="testimonial-card-author">Headteacher</div>
+          <div class="testimonial-card-role">Independent prep school, West Midlands</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-card-mark">"</div>
+          <p class="testimonial-card-quote">I didn't think seven-year-olds could engage with the problem of universals. I was wrong. The approach — starting with chairs, of all things — was disarmingly simple and completely effective.</p>
+          <div class="testimonial-card-author">Deputy Head, KS2</div>
+          <div class="testimonial-card-role">State primary school, Shropshire</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-controls">
+      <button class="t-carousel-btn" id="t-prev" aria-label="Previous">
+        <svg viewBox="0 0 14 14"><polyline points="9,2 4,7 9,12"/></svg>
+      </button>
+      <button class="t-carousel-btn" id="t-next" aria-label="Next">
+        <svg viewBox="0 0 14 14"><polyline points="5,2 10,7 5,12"/></svg>
+      </button>
+      <div class="t-carousel-dots" id="t-dots"></div>
+    </div>
+    <p class="testimonial-placeholder-note">Testimonials are illustrative placeholders — replace with real quotes as you collect them.</p>
   </div>
 
   <div class="section">
@@ -170,56 +328,19 @@
       <p class="eyebrow">Games</p>
       <h2 class="section-title">Take the thinking home.</h2>
       <p class="body-text"><span class="brand">intuit</span> has a free and expanding catalogue of games designed to complement the sessions. Children encounter the same spirit of genuine difficulty but through play, at their own pace, in their own time.</p>
-      <p class="body-text">Each game ends with a challenge question rooted in what the child has just discovered. Answer it correctly, enter your name, and earn a <em>Certificate of Intuition</em> — something real to show your teacher.</p>
-      <p class="body-text">The certificate is not a reward for completing a task. It is proof that a child encountered a genuine idea and followed it somewhere.</p>
+      <p class="body-text">Each game ends with a challenge question. Answer it correctly, enter your name, and earn a <em>Certificate of Intuition</em> — something real to show your teacher.</p>
       <div style="margin-top: 2rem;">
         <a href="games/hidden-meaning.html" class="btn btn-ghost">Play Hidden Meaning →</a>
       </div>
     </div>
   </div>
 
-  <div class="section" style="background: var(--paper-warm);">
-    <div class="container-wide">
-      <p class="eyebrow">Testimonials</p>
-      <h2 class="section-title">What schools say</h2>
-      <div class="testimonials-grid">
-
-        <div class="testimonial">
-          <div class="testimonial-mark">"</div>
-          <p class="testimonial-quote">The children were completely captivated. The Ship of Theseus lesson sparked conversations that went on for the rest of the week. One child asked their parents about it at dinner and came back the next day with a new argument.</p>
-          <div class="testimonial-author">Class Teacher, Year 5</div>
-          <div class="testimonial-role">Primary school, South Wales</div>
-        </div>
-
-        <div class="testimonial">
-          <div class="testimonial-mark">"</div>
-          <p class="testimonial-quote">I've seen a lot of enrichment providers come through. Most talk down to children. Mat doesn't. He takes their thinking seriously and the children respond to that immediately. An extraordinary session.</p>
-          <div class="testimonial-author">Headteacher</div>
-          <div class="testimonial-role">Independent prep school, West Midlands</div>
-        </div>
-
-        <div class="testimonial">
-          <div class="testimonial-mark">"</div>
-          <p class="testimonial-quote">I didn't think seven-year-olds could engage with the problem of universals. I was wrong. The approach — starting with chairs, of all things — was disarmingly simple and completely effective.</p>
-          <div class="testimonial-author">Deputy Head, KS2</div>
-          <div class="testimonial-role">State primary school, Shropshire</div>
-        </div>
-
-      </div>
-      <p style="margin-top: 1.5rem; font-size: 0.8rem; color: var(--ink-muted); font-style: italic;">Testimonials are illustrative placeholders — replace with real quotes as you collect them.</p>
+  <div class="contact-cta">
+    <div class="contact-cta-text">
+      <h2>Ready to book a slot?</h2>
+      <p>The best first step is a conversation.</p>
     </div>
-  </div>
-
-  <div class="section">
-    <div class="container">
-      <p class="eyebrow">Curriculum fit</p>
-      <h2 class="section-title">It earns its place on the timetable</h2>
-      <p class="body-text"><span class="brand">intuit</span> sessions credibly serve SMSC, oracy, critical thinking, and PSHE — which means they're not an optional extra. They're a defensible use of school time that Ofsted will recognise.</p>
-      <p class="body-text">State schools and independents both welcome. Fees are transparent and negotiable for smaller state primaries.</p>
-      <div style="margin-top: 2rem;">
-        <a href="contact.html" class="btn btn-primary">Get in touch</a>
-      </div>
-    </div>
+    <a href="contact.html" class="btn btn-primary">Get in touch</a>
   </div>
 
 </main>
@@ -242,6 +363,55 @@ function toggleMobileGames(el) {
   el.querySelector('.nav-games-arrow').style.transform =
     el.nextElementSibling.classList.contains('open') ? 'rotate(180deg)' : '';
 }
+
+const tTrack = document.getElementById('t-track');
+const tWrapper = document.getElementById('t-wrapper');
+const tPrev = document.getElementById('t-prev');
+const tNext = document.getElementById('t-next');
+const tDotsContainer = document.getElementById('t-dots');
+const tCards = tTrack.querySelectorAll('.testimonial-card');
+const tTotal = tCards.length;
+let tCurrent = 0;
+let autoTimer = null;
+
+tCards.forEach((_, i) => {
+  const dot = document.createElement('div');
+  dot.className = 't-carousel-dot' + (i === 0 ? ' active' : '');
+  dot.addEventListener('click', () => { tGoTo(i); resetAuto(); });
+  tDotsContainer.appendChild(dot);
+});
+
+function tGetWidth() { return tCards[0].offsetWidth + 24; }
+
+function tGoTo(index) {
+  tCurrent = (index + tTotal) % tTotal;
+  tTrack.style.transform = `translateX(-${tCurrent * tGetWidth()}px)`;
+  tDotsContainer.querySelectorAll('.t-carousel-dot').forEach((d, i) => {
+    d.classList.toggle('active', i === tCurrent);
+  });
+}
+
+function resetAuto() {
+  clearInterval(autoTimer);
+  autoTimer = setInterval(() => tGoTo(tCurrent + 1), 5500);
+}
+
+tPrev.addEventListener('click', () => { tGoTo(tCurrent - 1); resetAuto(); });
+tNext.addEventListener('click', () => { tGoTo(tCurrent + 1); resetAuto(); });
+tWrapper.addEventListener('mouseenter', () => clearInterval(autoTimer));
+tWrapper.addEventListener('mouseleave', () => resetAuto());
+
+let tTouchStart = null;
+tWrapper.addEventListener('touchstart', e => { tTouchStart = e.touches[0].clientX; });
+tWrapper.addEventListener('touchend', e => {
+  if (tTouchStart === null) return;
+  const delta = tTouchStart - e.changedTouches[0].clientX;
+  if (Math.abs(delta) > 50) { tGoTo(delta > 0 ? tCurrent + 1 : tCurrent - 1); resetAuto(); }
+  tTouchStart = null;
+});
+
+tGoTo(0);
+resetAuto();
 </script>
 </body>
 </html>
