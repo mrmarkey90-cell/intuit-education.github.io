@@ -262,8 +262,8 @@
       <a href="about.html" class="btn btn-ghost" style="margin-left: 1rem;">Learn more</a>
     </div>
   </div>
-  
-  <div class="section" style="background: var(--paper-warm);  border-bottom: 1px solid var(--rule);">
+
+  <div class="section" style="background: var(--paper-warm); border-bottom: 1px solid var(--rule);">
     <div class="container">
       <p class="eyebrow">What <span class="brand">intuit</span> does</p>
       <h2 class="section-title">Feel first. Think second.</h2>
@@ -274,12 +274,12 @@
       </div>
     </div>
   </div>
-  
+
   <div class="section">
     <div class="container">
       <p class="eyebrow">Who is it for?</p>
       <h2 class="section-title">The sweet spot is Upper KS2 and KS3.</h2>
-      <p class="body-text">Years 5 to 9: old enough to handle abstraction, young enough to still be genuinely delighted by ideas. Assemblies can be tailored for any age group from Year 3 upwards.</p>
+      <p class="body-text">Years 4 to 8: old enough to handle abstraction, young enough to still be genuinely delighted by ideas. Assemblies can be tailored for any age group from Year 3 upwards.</p>
       <p class="body-text">State schools and independents both welcome. <span class="brand">intuit</span> sessions credibly serve SMSC, oracy, critical thinking, and PSHE — a defensible use of school time that Ofsted and Estyn will recognise.</p>
     </div>
   </div>
@@ -372,6 +372,7 @@ const tDotsContainer = document.getElementById('t-dots');
 const tCards = tTrack.querySelectorAll('.testimonial-card');
 const tTotal = tCards.length;
 let tCurrent = 0;
+let tDirection = 1;
 let autoTimer = null;
 
 tCards.forEach((_, i) => {
@@ -393,7 +394,11 @@ function tGoTo(index) {
 
 function resetAuto() {
   clearInterval(autoTimer);
-  autoTimer = setInterval(() => tGoTo(tCurrent + 1), 5500);
+  autoTimer = setInterval(() => {
+    if (tCurrent === tTotal - 1) tDirection = -1;
+    if (tCurrent === 0) tDirection = 1;
+    tGoTo(tCurrent + tDirection);
+  }, 5500);
 }
 
 tPrev.addEventListener('click', () => { tGoTo(tCurrent - 1); resetAuto(); });
