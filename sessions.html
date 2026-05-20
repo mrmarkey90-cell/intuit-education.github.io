@@ -6,8 +6,264 @@
 <link rel="icon" type="image/svg+xml" href="/intuit_logo.svg">
 <title>Sessions — Intuit</title>
 <link rel="stylesheet" href="css/style.css">
+<style>
+/* ── MOBILE HEADER ── */
+.mobile-header {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  height: 56px;
+  background: var(--paper-warm);
+  border-bottom: 1px solid var(--rule);
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.25rem;
+}
+
+.mobile-header-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+}
+
+.mobile-header-logo span { color: var(--accent); }
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  background: none;
+  border: none;
+}
+
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--ink);
+  transition: all 0.25s;
+  transform-origin: center;
+}
+
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 56px; left: 0; right: 0;
+  z-index: 99;
+  background: var(--paper-warm);
+  border-bottom: 1px solid var(--rule);
+  flex-direction: column;
+  padding: 0.75rem 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.mobile-nav.open { display: flex; }
+
+.mobile-nav .nav-item {
+  padding: 0.75rem 1.5rem;
+  border-left: none;
+  font-size: 0.95rem;
+}
+
+.mobile-nav-games-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+
+.mobile-nav-games-children {
+  display: none;
+  flex-direction: column;
+  background: rgba(200,96,42,0.04);
+}
+
+.mobile-nav-games-children.open { display: flex; }
+.mobile-nav-games-children .nav-item { padding-left: 2.5rem; font-size: 0.875rem; }
+
+/* ── LESSON CAROUSEL ── */
+.lesson-carousel-section {
+  padding: 4rem;
+  border-bottom: 1px solid var(--rule);
+  overflow: hidden;
+}
+
+.lesson-carousel-header {
+  margin-bottom: 2rem;
+}
+
+.lesson-carousel-track-wrapper {
+  overflow: hidden;
+  cursor: grab;
+  user-select: none;
+}
+
+.lesson-carousel-track-wrapper:active { cursor: grabbing; }
+
+.lesson-carousel-track {
+  display: flex;
+  gap: 1.5rem;
+  transition: transform 0.35s ease;
+  will-change: transform;
+}
+
+.lesson-card {
+  flex: 0 0 340px;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: 2rem;
+  position: relative;
+  transition: border-color 0.2s;
+}
+
+.lesson-card:hover { border-color: var(--accent-light); }
+
+.lesson-card-subtitle {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
+.lesson-card-body {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+}
+
+.lesson-card-hook {
+  font-size: 0.875rem;
+  color: var(--ink-muted);
+  font-style: italic;
+  border-top: 1px solid var(--rule);
+  padding-top: 1rem;
+  line-height: 1.6;
+}
+
+.lesson-card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--accent-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.lesson-card-icon svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--accent);
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.carousel-btn {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.carousel-btn:hover { border-color: var(--accent); background: var(--accent-light); }
+.carousel-btn:disabled { opacity: 0.3; cursor: default; }
+
+.carousel-btn svg {
+  width: 14px;
+  height: 14px;
+  stroke: var(--ink);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.carousel-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.carousel-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--rule);
+  transition: background 0.2s;
+  cursor: pointer;
+}
+
+.carousel-dot.active { background: var(--accent); }
+
+.bespoke-note {
+  margin-top: 1.5rem;
+  font-size: 0.875rem;
+  color: var(--ink-muted);
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .mobile-header { display: flex; }
+  .lesson-carousel-section { padding: 2.5rem 1.5rem; }
+  .lesson-card { flex: 0 0 280px; }
+}
+</style>
 </head>
 <body>
+
+<!-- MOBILE HEADER -->
+<div class="mobile-header">
+  <a href="index.html" class="mobile-header-logo">in<span>tu</span>it</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</div>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="index.html" class="nav-item">Home</a>
+  <a href="about.html" class="nav-item">About</a>
+  <a href="sessions.html" class="nav-item active">Sessions</a>
+  <div class="mobile-nav-games-toggle" onclick="toggleMobileGames(this)">
+    <span>Games</span>
+    <svg class="nav-games-arrow" viewBox="0 0 12 12" style="width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;"><polyline points="2,4 6,8 10,4"/></svg>
+  </div>
+  <div class="mobile-nav-games-children">
+    <a href="games/hidden-meaning.html" class="nav-item">Hidden Meaning</a>
+  </div>
+  <a href="contact.html" class="nav-item">Contact</a>
+</nav>
 
 <aside class="sidebar">
   <a href="index.html" class="sidebar-logo">
@@ -19,7 +275,6 @@
     <a href="index.html" class="nav-item">Home</a>
     <a href="about.html" class="nav-item">About</a>
     <a href="sessions.html" class="nav-item active">Sessions</a>
-    <a href="lessons.html" class="nav-item">Lessons</a>
     <div class="nav-games-toggle" onclick="toggleGames(this)">
       <span>Games</span>
       <svg class="nav-games-arrow" viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg>
@@ -44,8 +299,74 @@
     <p class="page-intro fade-up delay-2"><span class="brand">intuit</span> works in half-day slots — morning or afternoon. What happens in that time is up to you. One assembly, two class sessions, a staff workshop, or a combination. You know your school; we know our sessions.</p>
   </div>
 
+  <!-- LESSON CAROUSEL -->
+  <div class="lesson-carousel-section">
+    <div class="lesson-carousel-header">
+      <p class="eyebrow">Example sessions</p>
+      <h2 class="section-title">The ideas don't talk down.</h2>
+      <p class="body-text">These are the actual problems, not child-friendly versions of them. The craft is in the approach, not the content. Every session ends with a hook question the children take home.</p>
+    </div>
+
+    <div class="lesson-carousel-track-wrapper" id="carousel-wrapper">
+      <div class="lesson-carousel-track" id="carousel-track">
+
+        <div class="lesson-card">
+          <div class="lesson-card-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="lesson-card-subtitle">Identity &amp; Change</div>
+          <p class="lesson-card-body">Starting with a game and a performance of a bespoke sea shanty about the Ship of Theseus, we explore what it means for something to remain itself through change, and why any answers matter more than children expect.</p>
+          <p class="lesson-card-hook">"Are you the same person you were born as?"</p>
+        </div>
+
+        <div class="lesson-card">
+          <div class="lesson-card-icon">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          </div>
+          <div class="lesson-card-subtitle">QUESTion</div>
+          <p class="lesson-card-body">A session laser-focused on asking the right questions. Includes a fun, team-based art game and the dissection of types of questions.</p>
+          <p class="lesson-card-hook">"Can questions say more than answers?"</p>
+        </div>
+
+        <div class="lesson-card">
+          <div class="lesson-card-icon">
+            <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <div class="lesson-card-subtitle">Appearance &amp; Reality</div>
+          <p class="lesson-card-body">Can you define a horse? A chair? A building? We take objects so familiar they've become invisible and ask what we actually know about them. Or rather, we discover what we don't know and can't know — which turns out to be most of it.</p>
+          <p class="lesson-card-hook">"Why is there a gap between what we know in our head and what we say?"</p>
+        </div>
+
+        <div class="lesson-card">
+          <div class="lesson-card-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <div class="lesson-card-subtitle">Limits of Intuition</div>
+          <p class="lesson-card-body">Starting with a magic trick with a strip of paper, we explore when our intuitions go wrong. Culminates in a hilarious demonstration of partial perception inspired by <em>The Blind Men and the Elephant.</em></p>
+          <p class="lesson-card-hook">"Is there anything you know for certain — that no one could argue you out of?"</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="carousel-controls">
+      <button class="carousel-btn" id="carousel-prev" aria-label="Previous">
+        <svg viewBox="0 0 14 14"><polyline points="9,2 4,7 9,12"/></svg>
+      </button>
+      <button class="carousel-btn" id="carousel-next" aria-label="Next">
+        <svg viewBox="0 0 14 14"><polyline points="5,2 10,7 5,12"/></svg>
+      </button>
+      <div class="carousel-dots" id="carousel-dots"></div>
+    </div>
+
+    <p class="bespoke-note">Sessions can be built around a specific theme, topic, or year group. <a href="contact.html" style="color: var(--accent);">Get in touch</a> and we'll talk through what might fit.</p>
+  </div>
+
+  <!-- SLOT FORMATS -->
   <div class="section">
     <div class="container-wide">
+      <p class="eyebrow">How it works</p>
+      <h2 class="section-title" style="margin-bottom: 2rem;">A slot, not a product.</h2>
       <div class="card-grid">
         <div class="card">
           <div class="card-number">AM</div>
@@ -71,6 +392,7 @@
     </div>
   </div>
 
+  <!-- PRICING -->
   <div class="section" style="background: var(--paper-warm);">
     <div class="container">
       <p class="eyebrow">Pricing</p>
@@ -103,6 +425,7 @@
     </div>
   </div>
 
+  <!-- KEY STAGES -->
   <div class="section">
     <div class="container">
       <p class="eyebrow">Key stages</p>
@@ -115,10 +438,88 @@
 </main>
 
 <script>
+// Sidebar games toggle
 function toggleGames(el) {
   el.classList.toggle('open');
   el.nextElementSibling.classList.toggle('open');
 }
+
+// Mobile hamburger
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobile-nav');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileNav.classList.toggle('open');
+});
+
+// Mobile games toggle
+function toggleMobileGames(el) {
+  el.nextElementSibling.classList.toggle('open');
+  el.querySelector('.nav-games-arrow').style.transform =
+    el.nextElementSibling.classList.contains('open') ? 'rotate(180deg)' : '';
+}
+
+// Carousel
+const track = document.getElementById('carousel-track');
+const wrapper = document.getElementById('carousel-wrapper');
+const prevBtn = document.getElementById('carousel-prev');
+const nextBtn = document.getElementById('carousel-next');
+const dotsContainer = document.getElementById('carousel-dots');
+
+const cards = track.querySelectorAll('.lesson-card');
+const total = cards.length;
+let current = 0;
+
+// Build dots
+cards.forEach((_, i) => {
+  const dot = document.createElement('div');
+  dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+  dot.addEventListener('click', () => goTo(i));
+  dotsContainer.appendChild(dot);
+});
+
+function getCardWidth() {
+  return cards[0].offsetWidth + 24; // card + gap
+}
+
+function goTo(index) {
+  current = Math.max(0, Math.min(index, total - 1));
+  track.style.transform = `translateX(-${current * getCardWidth()}px)`;
+  dotsContainer.querySelectorAll('.carousel-dot').forEach((d, i) => {
+    d.classList.toggle('active', i === current);
+  });
+  prevBtn.disabled = current === 0;
+  nextBtn.disabled = current === total - 1;
+}
+
+prevBtn.addEventListener('click', () => goTo(current - 1));
+nextBtn.addEventListener('click', () => goTo(current + 1));
+
+// Drag to swipe
+let dragStart = null;
+wrapper.addEventListener('mousedown', e => { dragStart = e.clientX; });
+wrapper.addEventListener('mousemove', e => {
+  if (dragStart === null) return;
+  const delta = dragStart - e.clientX;
+  if (Math.abs(delta) > 50) {
+    goTo(delta > 0 ? current + 1 : current - 1);
+    dragStart = null;
+  }
+});
+wrapper.addEventListener('mouseup', () => { dragStart = null; });
+wrapper.addEventListener('mouseleave', () => { dragStart = null; });
+
+// Touch swipe
+let touchStart = null;
+wrapper.addEventListener('touchstart', e => { touchStart = e.touches[0].clientX; });
+wrapper.addEventListener('touchend', e => {
+  if (touchStart === null) return;
+  const delta = touchStart - e.changedTouches[0].clientX;
+  if (Math.abs(delta) > 50) goTo(delta > 0 ? current + 1 : current - 1);
+  touchStart = null;
+});
+
+goTo(0);
 </script>
 </body>
 </html>
